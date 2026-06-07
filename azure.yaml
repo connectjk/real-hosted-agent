@@ -1,0 +1,28 @@
+name: real-hosted-agent
+metadata:
+  template: agent-framework-hosted
+services:
+  real-hosted-agent:
+    host: ai.agent
+    config:
+      name: real-hosted-agent
+      description: >
+        A hosted agent
+      agent:
+        path: .
+        startupCommand: python main.py
+        protocols:
+          - protocol: responses
+            version: 1.0.0
+        resources:
+          cpu: "0.25"
+          memory: 0.5Gi
+      deployments:
+        - name: gpt-4o
+          model:
+            name: gpt-4o
+            format: OpenAI
+            version: "2025-03-01"
+          sku:
+            name: GlobalStandard
+            capacity: 10
