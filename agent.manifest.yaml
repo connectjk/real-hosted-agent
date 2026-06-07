@@ -1,0 +1,21 @@
+name: real-hosted-agent
+description: >
+  A new hosted customer support agent that can search a knowledge base, create support tickets, track ticket status, and escalate complex issues to human agents when needed. It responds politely, provid
+metadata:
+  tags:
+    - Agent Framework
+    - Hosted Agent
+    - Responses Protocol
+template:
+  name: real-hosted-agent
+  kind: hosted
+  protocols:
+    - protocol: responses
+      version: 1.0.0
+  environment_variables:
+    - name: AZURE_AI_MODEL_DEPLOYMENT_NAME
+      value: "{{AZURE_AI_MODEL_DEPLOYMENT_NAME}}"
+resources:
+  - kind: model
+    id: gpt-4o
+    name: AZURE_AI_MODEL_DEPLOYMENT_NAME
